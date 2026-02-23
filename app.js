@@ -1,9 +1,12 @@
-const http = require('http');
+const myPromise = Promise.resolve("Success with async/await!");
 
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write('Hello World!');
-  res.end();
-}).listen(8080);
+async function myFunction() {
+  try {
+    const result = await myPromise;
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-console.log("Server running at http://localhost:8080");
+myFunction();
